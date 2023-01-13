@@ -11,11 +11,14 @@ function App() {
     <div className="App">
       <Nav/>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/stocks" element={<Stock />} />
+        <Route exact path="/" element={<Home />} />
+        {/* //i need a slash here becasue it acts like express where it will read another symbols that come after it  */}
+     
       {/* route will be accepting a variable with the symbol   */}
         <Route path="/about" element={<About />} />
-        <Route path="/dashboard" element={<Dashboard/>}/> 
+        <Route path="/dashboard" element={<Dashboard />} /> 
+        {/* //just like in ejs anything that is refered to as an id must go last */}
+           <Route path="/:symbol" element={<Stock />} />
       </Routes>      
   </div>
   );
